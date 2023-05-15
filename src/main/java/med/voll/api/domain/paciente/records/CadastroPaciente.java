@@ -1,13 +1,12 @@
-package med.voll.api.medico;
+package med.voll.api.domain.paciente.records;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import med.voll.api.endereco.Endereco;
+import med.voll.api.domain.endereco.records.Endereco;
 
-public record CadastroMedico(
+public record CadastroPaciente(
         @NotBlank
         String nome,
         @NotBlank
@@ -16,11 +15,8 @@ public record CadastroMedico(
         @NotBlank
         String telefone,
         @NotBlank
-        @Pattern(regexp = "\\d{4,6}")
-        String crm,
-        @NotNull
-        Especialidade especialidade,
+        String cpf,
         @NotNull
         @Valid
         Endereco endereco
-        ) {}
+) { }
